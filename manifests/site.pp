@@ -1,17 +1,22 @@
 
-class user_account ($username = 'azimk') {
-  user { $username:
-    ensure => present,
-    uid    => '787',
-    shell  => '/bin/bash',
-    home   => '/home/$username',
+class masterclass {
+  file { '/tmp/file1.txt':
+    ensure  => present,
+    content => 'This is file1 for inheritance in puppet class',
+  }
+}
+
+class subclass {
+  File['/tmp/file1']
+  {
+    mode => '700',
   }
 }
 
 node 'master.puppet.vm' {
-  class { user_account:}
+  include subclass
   file { '/root/README':
    	ensure => file,
-  	content => 'This is to test parameterized class with default value',
+  	content => 'This is to test inheritance in puppet classes',
   }
 }
