@@ -18,7 +18,7 @@ class stage_environment{
 }
 
 node 'master.puppet.vm' {
-  include dev_environment
+  include stage_environment
   file { '/root/README':
  	ensure => file,
  	content => 'v1 hello world',
