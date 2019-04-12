@@ -1,3 +1,9 @@
 node 'master.puppet.vm' {
-  notify { "This is just to notify ${::operatingsystem}": }
+  if $OperatingSystem != 'CentOS' {
+    warning ("This operating system is not centOS.")
+  }
+  else {
+    notify { "This operating system is ${::operatingsystem}, which is fine.": }  
+  }
+  
 }
