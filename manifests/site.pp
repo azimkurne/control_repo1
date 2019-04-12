@@ -1,4 +1,4 @@
-node default {
+
   class dev_environment {
     user { 'grace':
      ensure => present,
@@ -9,4 +9,4 @@ node default {
     ensure => present
    }
   }
-}
+
