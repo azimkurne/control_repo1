@@ -6,7 +6,7 @@ class masterclass {
   }
 }
 
-class subclass {
+class subclass inherits masterclass{
   File['/tmp/file1.txt']
   {
     mode => '700',
