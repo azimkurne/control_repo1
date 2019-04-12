@@ -1,4 +1,4 @@
-node 'master.puppet.vm' {
+node default {
   class dev_environment {
     user { 'grace':
      ensure => present,
