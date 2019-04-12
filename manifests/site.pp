@@ -10,6 +10,6 @@
    }
   }
 
-node 'master.puppet.vm' {
+node default {
   inlude dev_environment
 }
