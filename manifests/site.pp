@@ -9,7 +9,7 @@ class user_account ($username) {
 }
 
 node 'master.puppet.vm' {
-  class { user_account":
+  class { user_account:
     username => 'user1',
   }
   class { user_account:
