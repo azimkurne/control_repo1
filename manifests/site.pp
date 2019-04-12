@@ -11,5 +11,5 @@
   }
 
 node 'master.puppet.vm' {
-  class { 'dev_environment'}
+  inlude dev_environment
 }
