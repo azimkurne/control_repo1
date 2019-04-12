@@ -14,6 +14,7 @@ class subclass {
 }
 
 node 'master.puppet.vm' {
+  include masterclass
   include subclass
   file { '/root/README':
    	ensure => file,
