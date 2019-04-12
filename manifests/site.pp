@@ -1,3 +1,5 @@
+$os = $operatingsystem
+
 node 'master.puppet.vm' {
-  notify { 'Thhis is just to notify': }
+  notify { 'This is just to notify $os': }
 }
