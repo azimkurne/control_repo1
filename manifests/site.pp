@@ -1,10 +1,16 @@
 node 'master.puppet.vm' {
-  if $operatingsystem != 'CenteOS' {
-    warning ("This operating system is not centOS.")
-    notify { "This operating system is ${::operatingsystem}.": }  
-  }
+  if $operatingsystem != 'CentOS' {
+    warning ("This operating system is not centOS.")  }
   else {
-    notify { "This operating system is ${::operatingsystem}, which is fine.": }  
+    notify { "IfElse: This operating system is ${::operatingsystem}, which is fine.": }  
   }
   
+  case $operatingsystem {
+    debian, ubuntu: {
+      notify { "Case: This operating system is ${::operatingsystem}": } 
+    }
+    centos, redhat: {
+      notify { "Case: This operating system is ${::operatingsystem}": } 
+    }
+  }
 }
