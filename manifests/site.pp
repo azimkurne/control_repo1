@@ -7,14 +7,13 @@ class masterclass {
 }
 
 class subclass {
-  File['/tmp/file1']
+  File['/tmp/file1.txt']
   {
     mode => '700',
   }
 }
 
 node 'master.puppet.vm' {
-  include masterclass
   include subclass
   file { '/root/README':
    	ensure => file,
