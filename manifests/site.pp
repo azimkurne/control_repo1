@@ -11,7 +11,7 @@
   }
 
 node default {
-  inlude dev_environment
+  include dev_environment
   file { '/root/README':
  	ensure => file,
  	content => 'v1 hello world',
