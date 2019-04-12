@@ -11,7 +11,5 @@
   }
 
 node 'master.puppet.vm' {
-  class { 'dev_environment':
-    ensure => present,
-  }
+  class { 'dev_environment'}
 }
