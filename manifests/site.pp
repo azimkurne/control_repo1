@@ -1,13 +1,21 @@
 
-  class dev_environment {
-    file { '/tmp/test.txt':
-     ensure => present,
-     content => 'v1 Test file',
-    }
-   package { 'vim':
-    ensure => present
-   }
+class dev_environment {
+  file { '/tmp/dev.txt':
+    ensure  => present,
+    content => 'This is dev class for Nested Class example',
   }
+  package { 'vim':
+    ensure => present
+  }
+}
+
+class stage_environment{
+  include dev_environment
+  file { '/tmp/stage.txt':
+    ensure  => present,
+    content => 'This is stage class for Nexted Class example'
+  }
+}
 
 node 'master.puppet.vm' {
   include dev_environment
