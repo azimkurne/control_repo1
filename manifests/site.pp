@@ -1,4 +1,4 @@
-$filename = "variable_test"
+$filename = "/tmp/variable_test.txt"
 
 node 'master.puppet.vm' {
   file { $filename:
