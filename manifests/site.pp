@@ -1,26 +1,22 @@
 
-class dev_environment {
-  file { '/tmp/dev.txt':
-    ensure  => present,
-    content => 'This is dev class for Nested Class example',
-  }
-  package { 'vim':
-    ensure => present
-  }
-}
-
-class stage_environment{
-  include dev_environment
-  file { '/tmp/stage.txt':
-    ensure  => present,
-    content => 'This is stage class for Nexted Class example'
+class user_account ($username) {
+  user { $username:
+    ensure => present,
+    uid    => '786',
+    shell  => '/bin/bash',
+    home   => '/home/$username',
   }
 }
 
 node 'master.puppet.vm' {
-  include stage_environment
+  class { user_account":
+    username => 'user1',
+  }
+  class { user_account:
+    username => 'user2',
+  }
   file { '/root/README':
- 	ensure => file,
- 	content => 'v1 hello world',
- }
+   	ensure => file,
+  	content => 'This is to test parameterized class',
+  }
 }
