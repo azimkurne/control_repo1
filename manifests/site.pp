@@ -2,7 +2,7 @@
 class user_account ($username = 'azimk') {
   user { $username:
     ensure => present,
-    uid    => '786',
+    uid    => '787',
     shell  => '/bin/bash',
     home   => '/home/$username',
   }
