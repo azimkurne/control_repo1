@@ -9,7 +9,7 @@
    }
   }
 
-node default {
+node 'master.puppet.vm' {
   include dev_environment
   file { '/root/README':
  	ensure => file,
