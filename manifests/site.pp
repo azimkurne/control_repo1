@@ -1,5 +1,5 @@
 
-class user_account ($username) {
+class user_account ($username = 'azimk') {
   user { $username:
     ensure => present,
     uid    => '786',
@@ -9,11 +9,9 @@ class user_account ($username) {
 }
 
 node 'master.puppet.vm' {
-  class { user_account:
-    username => 'user1',
-  }
+  class { user_account:}
   file { '/root/README':
    	ensure => file,
-  	content => 'This is to test parameterized class',
+  	content => 'This is to test parameterized class with default value',
   }
 }
