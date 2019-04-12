@@ -1,5 +1,5 @@
 node 'master.puppet.vm' {
-  if $OperatingSystem != 'CentOS' {
+  if $operatingsystem != 'CentOS' {
     warning ("This operating system is not centOS.")
   }
   else {
