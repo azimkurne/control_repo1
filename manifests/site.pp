@@ -1,8 +1,8 @@
 
   class dev_environment {
-    user { 'grace':
+    file { '/tmp/test.txt':
      ensure => present,
-     group => ['wheel'],
+     content => 'v1 Test file',
     }
    package { 'vim':
     ensure => present
